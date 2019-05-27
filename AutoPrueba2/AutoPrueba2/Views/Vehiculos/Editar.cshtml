@@ -1,0 +1,80 @@
+﻿@model AutoPrueba2.Models.Auto
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h4>Edit</h4>
+<hr />
+<div id="appp">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/Vehiculos/Edit" id="vehiculoform">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" name="Id" />
+                <div class="form-group">
+                    <label asp-for="Tipo" class="control-label"></label>
+                    <input asp-for="Tipo" name="Tipo" class="form-control" />
+                    <span asp-validation-for="Tipo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Marca" class="control-label"></label>
+                    <input asp-for="Marca" name="Marca" class="form-control" />
+                    <span asp-validation-for="Marca" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Modelo" class="control-label"></label>
+                    <input asp-for="Modelo" name="Modelo" class="form-control" />
+                    <span asp-validation-for="Modelo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Color" class="control-label"></label>
+                    <input asp-for="Color" name="Color" class="form-control" />
+                    <span asp-validation-for="Color" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Deposito" class="control-label"></label>
+                    <input asp-for="Deposito" name="Deposito" class="form-control" />
+                    <span asp-validation-for="Deposito" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MatriculaCaracterUno" class="control-label"></label>
+                    <input asp-for="MatriculaCaracterUno" name="MatriculaCaracterUno" class="form-control" />
+                    <span asp-validation-for="MatriculaCaracterUno" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MatriculaCaracterDos" class="control-label"></label>
+                    <input asp-for="MatriculaCaracterDos" name="MatriculaCaracterDos" class="form-control" />
+                    <span asp-validation-for="MatriculaCaracterDos" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MatriculaCaracterTres" class="control-label"></label>
+                    <input asp-for="MatriculaCaracterTres" name="MatriculaCaracterTres" class="form-control" />
+                    <span asp-validation-for="MatriculaCaracterTres" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Fecha" class="control-label"></label>
+                    <input asp-for="Fecha" name="Fecha" class="form-control" />
+                    <span asp-validation-for="Fecha" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    @section ScriptsSection {
+        <script src="~/js/Vehiculo-validator.js"></script>
+        <script src="~/js/Editar.js"></script>
+        <script src="~/js/Lista.js"></script>
+        <script>
+
+
+            $(document).ready(function () {
+                initVue();
+                vm.obtenerEdit();
+            });
+        </script>
+    }

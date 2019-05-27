@@ -13005,11 +13005,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\prisc\\Source\\Repos\\PruebaVehiculo2\\AutoPrueba2\\AutoPrueba2\\AutoPrueba2.csproj",
+      "projectUniqueName": "C:\\Users\\prisc\\source\\repos\\PruebaVehiculo2\\AutoPrueba2\\AutoPrueba2\\AutoPrueba2.csproj",
       "projectName": "AutoPrueba2",
-      "projectPath": "C:\\Users\\prisc\\Source\\Repos\\PruebaVehiculo2\\AutoPrueba2\\AutoPrueba2\\AutoPrueba2.csproj",
+      "projectPath": "C:\\Users\\prisc\\source\\repos\\PruebaVehiculo2\\AutoPrueba2\\AutoPrueba2\\AutoPrueba2.csproj",
       "packagesPath": "C:\\Users\\prisc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\prisc\\Source\\Repos\\PruebaVehiculo2\\AutoPrueba2\\AutoPrueba2\\obj\\",
+      "outputPath": "C:\\Users\\prisc\\source\\repos\\PruebaVehiculo2\\AutoPrueba2\\AutoPrueba2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

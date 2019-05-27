@@ -23,8 +23,13 @@ namespace AutoPrueba2.Controllers
 
             return View(GetAutoId(id));
         }
+        public IActionResult Agregar()
+        {
 
-        public async Task<IActionResult> Registrar(Auto en)
+
+            return View();
+        }
+        public async Task<IActionResult> Add(Auto en)
         {
 
             var autito = new Auto
@@ -73,7 +78,7 @@ namespace AutoPrueba2.Controllers
             db.Remove(en);
             await db.SaveChangesAsync();
 
-            return Redirect("/Home/Privacy/");
+            return Redirect("/Home/Index/");
 
         }
         public Auto GetAutoId(int id)
@@ -86,19 +91,19 @@ namespace AutoPrueba2.Controllers
 
             db.Autos.Update(en);
             await db.SaveChangesAsync();
-            return Redirect("/Home/Privacy/");
+            return Redirect("/Home/Index/");
 
         }
-        public Auto GetAutoId(int id)
+        public Auto GetAutoIdEditar(int id)
         {
             return db.Autos.FirstOrDefault(x => x.Id == id);
         }
-        public IActionResult Index(int id)
+        public IActionResult Editar(int id)
         {
 
-            var x = GetAutoId(id);
+            var x = GetAutoIdEditar(id);
             return View(x);
         }
-        
+    
     }
 }
