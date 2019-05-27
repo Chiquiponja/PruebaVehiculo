@@ -1,0 +1,116 @@
+﻿@model Auto
+<div id="app">
+    <section class="container">
+        <div class="row">
+            <div class="col-md-8 animated fadeInLeft notransition">
+                <h1 class="smalltitle">
+                    <span>Registro de Autos</span>
+                </h1>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+
+                            <th>Id</th>
+
+                            <th>Tipo</th>
+
+                            <th>Marca</th>
+
+                            <th>Modelo</th>
+
+                            <th>Color</th>
+
+                            <th>Deposito</th>
+
+                            <th>MatriculaCaracterUno</th>
+
+                            <th>MatriculaCaracterDos   </th>
+
+                            <th>MatriculaCaracterTres</th>
+
+                            <th>Fecha</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in vehiculo ">
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.tipo }}</td>
+                            <td>{{ item.marca }}</td>
+                            <td>{{ item.modelo }}</td>
+                            <td>{{ item.color}}</td>
+                            <td>{{ item.deposito }}</td>
+                            <td>{{ item.matriculaCaracterUno }}</td>
+                            <td>{{ item.matriculaCaracterDos }}</td>
+                            <td>{{ item.matriculaCaracterTres}}</td>
+                            <td>{{ item.fecha}}</td>
+                            <td>
+
+                                <a :href="'/Vehiculos/Eliminar/' + item.id" class="btn btn-danger">Eliminar</a>
+                                <a :href="'/Editar/Index/' + item.id" class="btn btn-dark">Editar</a> 
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
+        </div>
+    </section>
+</div>
+
+@section ScriptsSection {
+
+    <script>
+        $(document).ready(function () {
+
+
+
+            // refresh captcha
+            $('img#refresh').click(function () {
+
+                change_captcha();
+            });
+
+            function change_captcha() {
+                document.getElementById('captcha').src = "get_captcha.php?rnd=" + Math.random();
+            }
+           
+            function clear_form() {
+
+
+
+
+
+                $("Tipo").val('');
+                $("Marca").val('');
+                $("Modelo").val('');
+                $("Color").val('');
+                $("Deposito").val('');
+                $("MatriculaCaracterUno").val('');
+                $("MatriculaCaracterDos").val('');
+                $("MatriculaCaracterTres").val('');
+                $("Fecha").val('');
+
+
+            }
+
+
+        });
+
+    </script>
+    <script src="~/js/Lista.js"></script>
+
+    <script src="~/js/Vehiculo-validator.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+            initVue();
+            vm.obtenerVehiculo();
+        });
+    </script>
+}
