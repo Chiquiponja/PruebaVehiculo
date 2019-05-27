@@ -9,7 +9,8 @@
             <div class="form">
                 <div class="col-md-4 mb-3">
                     <label>Tipo</label>
-                    <input asp-for="Tipo" type="text" class="form-control" name="Tipo">
+                    <span v-if="!Tipo">Requerido</span>
+                    <input asp-for="Tipo" type="text" class="form-control" name="Tipo" >
 
 
                 </div>

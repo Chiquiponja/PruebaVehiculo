@@ -7,7 +7,7 @@
 
 <h4>Edit</h4>
 <hr />
-<div id="appp">
+<div id="app">
     <div class="row">
         <div class="col-md-6">
             <form action="/Vehiculos/Edit" id="vehiculoform">
@@ -64,17 +64,17 @@
             </form>
         </div>
     </div>
-    </div>
-    @section ScriptsSection {
-        <script src="~/js/Vehiculo-validator.js"></script>
-        <script src="~/js/Editar.js"></script>
-        <script src="~/js/Lista.js"></script>
-        <script>
+</div>
+@section ScriptsSection {
+    <script src="~/js/Vehiculo-validator.js"></script>
+    <script src="~/js/Lista.js"></script>
+
+    <script>
 
 
-            $(document).ready(function () {
-                initVue();
-                vm.obtenerEdit();
-            });
-        </script>
-    }
+        $(document).ready(function () {
+            initVue();
+            vm.obtenerEdit();
+        });
+    </script>
+}
