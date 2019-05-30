@@ -31,36 +31,48 @@ namespace AutoPrueba2.Controllers
         }
         public async Task<IActionResult> Add(Auto en)
         {
-
-            var autito = new Auto
+            try
             {
-                Id = en.Id,
-                    
-                    Tipo=en.Tipo,
-                    
-                    Marca=en.Marca,
-                    
-                    Modelo=en.Modelo,
-                    
-                    Color=en.Color,
-                    
-                    Deposito=en.Deposito,
-                    
-                    MatriculaCaracterUno=en.MatriculaCaracterUno,
-                    
-                    MatriculaCaracterDos=en.MatriculaCaracterDos,
-                    
-                    MatriculaCaracterTres=en.MatriculaCaracterTres,
-                    
-                    Fecha=en.Fecha
-            };
+                throw new Exception("No se pudo guardar el vehiculo.");
+                var autito = new Auto
+                {
+                    Id = en.Id,
+
+                    Tipo = en.Tipo,
+
+                    Marca = en.Marca,
+
+                    Modelo = en.Modelo,
+
+                    Color = en.Color,
+
+                    Deposito = en.Deposito,
+
+                    MatriculaCaracterUno = en.MatriculaCaracterUno,
+
+                    MatriculaCaracterDos = en.MatriculaCaracterDos,
+
+                    MatriculaCaracterTres = en.MatriculaCaracterTres,
+
+                    Fecha = en.Fecha
+                };
+
+                db.Autos.Add(autito);
+                await db.SaveChangesAsync();
+
+                return Redirect("/Home/Index");
+            }
+            catch (Exception ex)
+            {
+
+                ViewData["ErrorMessage"] = ex.Message;
+                return View("Error");
+            }
+           
 
 
 
-            db.Autos.Add(autito);
-            await db.SaveChangesAsync();
-
-            return Redirect("/Home/Index");
+            
         }
         public IEnumerable<Auto> Listar()
         {
@@ -71,14 +83,23 @@ namespace AutoPrueba2.Controllers
         public async Task<IActionResult> Delete(Auto en)
         {
 
+            try
+            {
+                throw new Exception("No se pudo Eliminar el Registro.");
+                en = GetAutoId(en.Id);
 
-            en = GetAutoId(en.Id);
 
+                db.Remove(en);
+                await db.SaveChangesAsync();
 
-            db.Remove(en);
-            await db.SaveChangesAsync();
-
-            return Redirect("/Home/Index/");
+                return Redirect("/Home/Index/");
+            }
+            catch (Exception ex)
+            {
+                ViewData["ErrorMessage"] = ex.Message;
+                return View("Error");
+            }
+           
 
         }
         public Auto GetAutoId(int id)
@@ -88,10 +109,19 @@ namespace AutoPrueba2.Controllers
         public async Task<IActionResult> Edit(Auto en)
         {
 
-            //throw new Exception("Error");
-            db.Autos.Update(en);
-            await db.SaveChangesAsync();
-            return Redirect("/Home/Index/");
+            try
+            {
+                throw new Exception("No se pudo Editar el Registro.");
+                db.Autos.Update(en);
+                await db.SaveChangesAsync();
+                return Redirect("/Home/Index/");
+            }
+            catch (Exception ex)
+            {
+                ViewData["ErrorMessage"] = ex.Message;
+                return View("Error");
+            }
+            
 
         }
         public Auto GetAutoIdEditar(int id)

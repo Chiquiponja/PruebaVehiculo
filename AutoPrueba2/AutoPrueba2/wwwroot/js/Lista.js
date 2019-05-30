@@ -63,33 +63,8 @@ function initVue() {
                         vm.$data.vehiculo = data;
                     })
                     .fail(function (jqXHR, textStatus, errorThrown) {
-                        if (jqXHR.status === 0) {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (jqXHR.status == 404) {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (jqXHR.status == 500) {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (textStatus === 'parsererror') {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (textStatus === 'timeout') {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (textStatus === 'abort') {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else {
-
-                            alert('ERROR EN EL SERVIDOR' + jqXHR.responseText);
+                        if (console && console.log) {
+                            console.log("La solicitud ha fallado: " + textStatus);
                         }
                     });
             },
@@ -106,33 +81,8 @@ function initVue() {
                         vm.$data.vehiculo = data;
                     })
                     .fail(function (jqXHR, textStatus, errorThrown) {
-                        if (jqXHR.status === 0) {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (jqXHR.status == 404) {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (jqXHR.status == 500) {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (textStatus === 'parsererror') {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (textStatus === 'timeout') {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (textStatus === 'abort') {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else {
-
-                            alert('ERROR EN EL SERVIDOR' + jqXHR.responseText);
+                        if (console && console.log) {
+                            console.log("La solicitud ha fallado: " + textStatus);
                         }
                     });
             },
