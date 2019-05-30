@@ -88,7 +88,7 @@ namespace AutoPrueba2.Controllers
         public async Task<IActionResult> Edit(Auto en)
         {
 
-
+            //throw new Exception("Error");
             db.Autos.Update(en);
             await db.SaveChangesAsync();
             return Redirect("/Home/Index/");
