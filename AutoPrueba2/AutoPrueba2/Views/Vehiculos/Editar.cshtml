@@ -10,7 +10,7 @@
 <div id="app">
     <div class="row">
         <div class="col-md-6">
-            <form action="/Vehiculos/Edit" id="vehiculoform">
+            <form action="/Vehiculos/Edit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" name="Id" />
                 <div class="form-group">
@@ -66,9 +66,48 @@
     </div>
 </div>
 @section ScriptsSection {
-    <script src="~/js/Vehiculo-validator.js"></script>
     <script src="~/js/Lista.js"></script>
+    <script>
+        export default {
+            data()
+        }
+        $(document).ready(function () {
 
+
+
+            // refresh captcha
+            $('img#refresh').click(function () {
+
+                change_captcha();
+            });
+
+            function change_captcha() {
+                document.getElementById('captcha').src = "get_captcha.php?rnd=" + Math.random();
+            }
+
+            function clear_form() {
+
+
+
+
+
+                $("Tipo").val('');
+                $("Marca").val('');
+                $("Modelo").val('');
+                $("Color").val('');
+                $("Deposito").val('');
+                $("MatriculaCaracterUno").val('');
+                $("MatriculaCaracterDos").val('');
+                $("MatriculaCaracterTres").val('');
+                $("Fecha").val('');
+
+
+            }
+
+
+        });
+
+    </script>
     <script>
 
 

@@ -5,67 +5,66 @@
     <div class="text-center">
         <h1 class="display-4">REGISTRO DE AUTOS</h1>
         <form method="post" action="/Vehiculos/Add" id="vehiculoform">
+            <fieldset>
+                <div class="form">
+                    <div class="col-md-4 mb-3">
+                        <label>Tipo </label>
+                        <input asp-for="Tipo" type="text" class="form-control" name="Tipo" id="Tipo" v-model="Tipo"/>
 
-            <div class="form">
-                <div class="col-md-4 mb-3">
-                    <label>Tipo</label>
-                    <span v-if="!Tipo">Requerido</span>
-                    <input asp-for="Tipo" type="text" class="form-control" name="Tipo" >
+
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Marca </label>
+                        <input asp-for="Marca" type="text" name="Marca" id="Marca" class="form-control" />
+
+                    </div>
 
 
+                    <div class="col-md-4 mb-3">
+                        <label>Modelo</label>
+                        <input asp-for="Modelo" type="text" name="Modelo" id="Modelo" class="form-control" />
+
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Color</label>
+                        <input asp-for="Color" type="text" name="Color" id="Color" class="form-control" />
+
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Deposito</label>
+                        <input asp-for="Deposito" type="text" name="Deposito" id="Deposito" class="form-control" />
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>MatriculaCaracterUno</label>
+                        <input asp-for="MatriculaCaracterUno" type="text" name="MatriculaCaracterUno" id="MatriculaCaracterUno" class="form-control" />
+
+                    </div>
+
+
+                    <div class="col-md-4 mb-3">
+                        <label>MatriculaCaracterDos</label>
+                        <input asp-for="MatriculaCaracterDos" type="number" name="MatriculaCaracterDos" id="MatriculaCaracterDos" class="form-control" />
+
+                    </div>
+
+
+                    <div class="col-md-4 mb-3">
+                        <label>MatriculaCaracterTres</label>
+                        <input asp-for="MatriculaCaracterTres" type="text" name="MatriculaCaracterTres" id="MatriculaCaracterTres" class="form-control" />
+
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Fecha</label>
+                        <input asp-for="Fecha" type="datetime" name="Fecha***" id="Fecha" class="form-control" />
+
+                    </div>
+
+                    <button id="submit" class="btn btn-primary" type="submit">Enviar</button>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <label>Marca</label>
-                    <input asp-for="Marca" type="text" name="Marca" class="form-control">
-
-                </div>
-
-
-                <div class="col-md-4 mb-3">
-                    <label>Modelo</label>
-                    <input asp-for="Modelo" type="text" name="Modelo" class="form-control">
-
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label>Color</label>
-                    <input asp-for="Color" type="text" name="Color" class="form-control">
-
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label>Deposito</label>
-                    <input asp-for="Deposito" type="text" name="Deposito" class="form-control">
-
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label>MatriculaCaracterUno</label>
-                    <input asp-for="MatriculaCaracterUno" type="text" name="MatriculaCaracterUno" class="form-control">
-
-                </div>
-
-
-                <div class="col-md-4 mb-3">
-                    <label>MatriculaCaracterDos</label>
-                    <input asp-for="MatriculaCaracterDos" type="number" name="MatriculaCaracterDos" class="form-control">
-
-                </div>
-
-
-                <div class="col-md-4 mb-3">
-                    <label>MatriculaCaracterTres</label>
-                    <input asp-for="MatriculaCaracterTres" type="text" name="MatriculaCaracterTres" class="form-control">
-
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label>Fecha</label>
-                    <input asp-for="Fecha" type="datetime" name="Fecha***" class="form-control">
-
-                </div>
-
-                <button id="submit" class="btn btn-primary" type="submit">Enviar</button>
-            </div>
-
+            </fieldset>
 
         </form>
     </div>
@@ -73,25 +72,48 @@
 @section ScriptsSection {
     <script src="~/js/Vehiculo-validator.js"></script>
     <script src="~/js/Lista.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
     <script>
+        $("#vehiculoform").validate();
+    </script>
+    <script>
+        $(document).ready(function () {
 
-        (function () {
-            'use strict';
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
+
+
+            // refresh captcha
+            $('img#refresh').click(function () {
+
+                change_captcha();
+            });
+
+            function change_captcha() {
+                document.getElementById('captcha').src = "get_captcha.php?rnd=" + Math.random();
+            }
+
+            function clear_form() {
+
+
+
+
+
+                $("Tipo").val('');
+                $("Marca").val('');
+                $("Modelo").val('');
+                $("Color").val('');
+                $("Deposito").val('');
+                $("MatriculaCaracterUno").val('');
+                $("MatriculaCaracterDos").val('');
+                $("MatriculaCaracterTres").val('');
+                $("Fecha").val('');
+
+
+            }
+
+
+        });
+
     </script>
     <script>
 

@@ -33,7 +33,7 @@ namespace AutoPrueba2.Controllers
         {
             try
             {
-                throw new Exception("No se pudo guardar el vehiculo.");
+                //throw new Exception("No se pudo guardar el vehiculo.");
                 var autito = new Auto
                 {
                     Id = en.Id,
@@ -85,7 +85,7 @@ namespace AutoPrueba2.Controllers
 
             try
             {
-                throw new Exception("No se pudo Eliminar el Registro.");
+                //throw new Exception("No se pudo Eliminar el Registro.");
                 en = GetAutoId(en.Id);
 
 
@@ -111,7 +111,7 @@ namespace AutoPrueba2.Controllers
 
             try
             {
-                throw new Exception("No se pudo Editar el Registro.");
+                //throw new Exception("No se pudo Editar el Registro.");
                 db.Autos.Update(en);
                 await db.SaveChangesAsync();
                 return Redirect("/Home/Index/");

@@ -11,6 +11,8 @@ function initVue() {
                 $.ajax({
                     //Cambiar a type: POST si necesario
                     type: "GET",
+                    
+
                     // Formato de datos que se espera en la respuesta
                     dataType: "json",
                     // URL a la que se enviará la solicitud Ajax
@@ -20,33 +22,8 @@ function initVue() {
                         vm.$data.vehiculo = data;
                     })
                     .fail(function (jqXHR, textStatus, errorThrown) {
-                        if (jqXHR.status === 0) {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (jqXHR.status == 404) {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (jqXHR.status == 500) {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (textStatus === 'parsererror') {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (textStatus === 'timeout') {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else if (textStatus === 'abort') {
-
-                            alert('ERROR EN EL SERVIDOR');
-
-                        } else {
-
-                            alert('ERROR EN EL SERVIDOR' + jqXHR.responseText);
+                        if (console && console.log) {
+                            console.log("La solicitud ha fallado: " + textStatus);
                         }
                     });
             },

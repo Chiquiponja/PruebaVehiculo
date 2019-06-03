@@ -1,7 +1,8 @@
 ﻿
-$(function () {
+$().ready((function () {
     
     $("#vehiculoform").validate({
+
         
         rules: {
             Tipo  : {
@@ -54,48 +55,48 @@ $(function () {
         },
         messages: {
             Tipo: {
-                required: "Escribi tu... ",
-                minlength: "miniimo 3 caracter"
+                required: "Escribi tu Nombre... ",
+                minlength: "Minimo 3 caracter"
                
             },
             Marca: {
-
-                minlength: "miniimo 3 caracter"
+                required: "Escribi la Marca... ",
+                minlength: "Minimo 3 caracter"
                
             },
             Modelo: {
-
-                minlength: "miniimo 3 caracter"
+                required: "Escribi el Modelo... ",
+                minlength: "Minimo 3 caracter"
                
             },
             Color: {
-
-                minlength: "miniimo 3 caracter"
+                required: "Escribi el Color... ",
+                minlength: "Minimo 3 caracter"
                
             },
             Deposito: {
-
-                minlength: "miniimo 3 caracter"
+                required: "Escribi tu Deposito... ",
+                minlength: "Minimo 3 caracter"
                
             },
             MatriculaCaracterUno: {
-
-                minlength: "miniimo 3 caracter"
-               
+                required: "Escribi la Matricula... ",
+                minlength: "Minimo 3 caracter",
+              
             },
             MatriculaCaracterDos: {
-
-                minlength: "miniimo 3 caracter"
+                required: "Escribi la Matricula... ",
+                minlength: "Minimo 3 caracter"
                
             },
             MatriculaCaracterTres: {
-
-                minlength: "miniimo 3 caracter"
+                required: "Escribi la Matricula... ",
+                minlength: "Minimo 3 caracter"
                
             },
             Fecha: {
-
-                minlength: "miniimo 3 caracter"
+                required: "Escribi la Fecha... ",
+                minlength: "Minimo 3 caracter"
                
             }
 
@@ -106,4 +107,4 @@ $(function () {
     });
 
    
-});
+}));
