@@ -5,22 +5,51 @@
 
 <h1>Eliminar</h1>
 <p>Desea Eliminar Este Registro </p>
-<div id="app">
-    <form action="/Vehiculos/Delete">
-        <input type="hidden" name="Id" asp-for="Id" />
-        <input type="submit" value="Eliminar" class="btn btn-danger" />
+<div id="appAutos">
+    <div>
+        <h4>Auto</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                {{auto.id }} 
+            </dt>
+            <dd class="col-sm-10">
+                {{ auto.tipo }}
+            </dd>
+            <dt class="col-sm-2">
+                {{ auto.marca }}
+            </dt>
+            <dd class="col-sm-10">
+                {{ auto.modelo }}
+            </dd>
+            <dt class="col-sm-2">
+                {{ auto.color}}
+            </dt>
+            <dd class="col-sm-10">
+                {{ auto.deposito }}
+            </dd>
+            <dt class="col-sm-2">
+                {{ auto.matriculaConcatenada }}
+            </dt>
+            <dd class="col-sm-10">
+                {{ auto.fecha}}
+            </dd>
+        </dl>
+        <form action="/Vehiculos/Delete">
+            <input type="hidden" name="Id" asp-for="Id" />
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
 
-    </form>
+        </form>
+    </div>
     </div>
     @section ScriptsSection {
-        <script src="~/js/Lista.js"></script>
+        <script src="~/js/Formulario.js"></script>
 
         <script>
 
 
             $(document).ready(function () {
-                initVue();
-                vm.obtenerDetele();
+                vm.obtenerAutoById(@ViewData["Id"]);
             });
         </script>
     }

@@ -1,17 +1,17 @@
 ﻿@model Auto
 <div id="app">
-    <section class="container">
+    <section >
         <div class="row">
-            <div class="col-md-8 animated fadeInLeft notransition">
-                <h1 class="smalltitle">
+            <div class="col-md-12 animated fadeInLeft notransition">
+                <h1 class="list-group-item active">
                     <span>Registro de Autos</span>
                 </h1>
 
-                <table class="table table-hover">
-                    <thead>
+                <table class=" col-md- table table-default table-hover " >
+                    <thead >
                         <tr>
 
-                            <th>Id</th>
+                            <th>Id</th>  
 
                             <th>Tipo</th>
 
@@ -23,11 +23,7 @@
 
                             <th>Deposito</th>
 
-                            <th>MatriculaCaracterUno</th>
-
-                            <th>MatriculaCaracterDos   </th>
-
-                            <th>MatriculaCaracterTres</th>
+                            <th>Matricula</th>
 
                             <th>Fecha</th>
 
@@ -35,20 +31,18 @@
                     </thead>
                     <tbody>
                         <tr v-for="item in vehiculo ">
-                            <td>{{ item.id }}</td>
+                            <td> {{ item.id }}</td>
                             <td>{{ item.tipo }}</td>
                             <td>{{ item.marca }}</td>
                             <td>{{ item.modelo }}</td>
                             <td>{{ item.color}}</td>
                             <td>{{ item.deposito }}</td>
-                            <td>{{ item.matriculaCaracterUno }}</td>
-                            <td>{{ item.matriculaCaracterDos }}</td>
-                            <td>{{ item.matriculaCaracterTres}}</td>
+                            <td>{{ item.matriculaConcatenada }}</td>
                             <td>{{ item.fecha}}</td>
                             <td>
 
                                 <a :href="'/Vehiculos/Eliminar/' + item.id" class="btn btn-danger">Eliminar</a>
-                                <a :href="'/Vehiculos/Editar/' + item.id" class="btn btn-dark">Editar</a>
+                                <a :href="'/Vehiculos/Editar/' + item.id" class="btn btn-primary">Editar</a>
                             </td>
                         </tr>
 

@@ -5,115 +5,84 @@
 }
 
 
-<h4>Edit</h4>
+<h4>Editar</h4>
 <hr />
-<div id="app">
+<div id="appAutos">
     <div class="row">
         <div class="col-md-6">
-            <form action="/Vehiculos/Edit">
+            <form action="/Vehiculos/Edit" id="vehiculoform">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" name="Id" />
-                <div class="form-group">
-                    <label asp-for="Tipo" class="control-label"></label>
-                    <input asp-for="Tipo" name="Tipo" class="form-control" />
-                    <span asp-validation-for="Tipo" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Marca" class="control-label"></label>
-                    <input asp-for="Marca" name="Marca" class="form-control" />
-                    <span asp-validation-for="Marca" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Modelo" class="control-label"></label>
-                    <input asp-for="Modelo" name="Modelo" class="form-control" />
-                    <span asp-validation-for="Modelo" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Color" class="control-label"></label>
-                    <input asp-for="Color" name="Color" class="form-control" />
-                    <span asp-validation-for="Color" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Deposito" class="control-label"></label>
-                    <input asp-for="Deposito" name="Deposito" class="form-control" />
-                    <span asp-validation-for="Deposito" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="MatriculaCaracterUno" class="control-label"></label>
-                    <input asp-for="MatriculaCaracterUno" name="MatriculaCaracterUno" class="form-control" />
-                    <span asp-validation-for="MatriculaCaracterUno" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="MatriculaCaracterDos" class="control-label"></label>
-                    <input asp-for="MatriculaCaracterDos" name="MatriculaCaracterDos" class="form-control" />
-                    <span asp-validation-for="MatriculaCaracterDos" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="MatriculaCaracterTres" class="control-label"></label>
-                    <input asp-for="MatriculaCaracterTres" name="MatriculaCaracterTres" class="form-control" />
-                    <span asp-validation-for="MatriculaCaracterTres" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Fecha" class="control-label"></label>
-                    <input asp-for="Fecha" name="Fecha" class="form-control" />
-                    <span asp-validation-for="Fecha" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" />
-                </div>
+       
+                    <div class="form-group">
+                        <label @@keyup.enter="crearAuto" class="control-label">{{ auto.Tipo }}</label>
+                        <input v-model="auto.Tipo" asp-for="Tipo" name="Tipo" class="form-control" />
+                        <span asp-validation-for="Tipo" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label @@keyup.enter="crearAuto" class="control-label">{{ auto.Marca }}</label>
+                        <input v-model="auto.Marca" asp-for="Marca" name="Marca" class="form-control" />
+                        <span asp-validation-for="Marca" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label v-model="auto.Modelo" @@keyup.enter="crearAuto" class="control-label"></label>
+                        <input asp-for="Modelo" name="Modelo" class="form-control" />
+                        <span asp-validation-for="Modelo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label v-model="auto.Color" @@keyup.enter="crearAuto" class="control-label"></label>
+                        <input asp-for="Color" name="Color" class="form-control" />
+                        <span asp-validation-for="Color" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label v-model="auto.Deposito" @@keyup.enter="crearAuto" class="control-label"></label>
+                        <input asp-for="Deposito" name="Deposito" class="form-control" />
+                        <span asp-validation-for="Deposito" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label v-model="auto.MatriculaCaracterUno" @@keyup.enter="crearAuto" class="control-label"></label>
+                        <input asp-for="MatriculaCaracterUno" name="MatriculaCaracterUno" class="form-control" />
+                        <span asp-validation-for="MatriculaCaracterUno" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label v-model="auto.MatriculaCaracterDos" @@keyup.enter="crearAuto" class="control-label"></label>
+                        <input asp-for="MatriculaCaracterDos" name="MatriculaCaracterDos" class="form-control" />
+                        <span asp-validation-for="MatriculaCaracterDos" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label v-model="auto.MatriculaCaracterTres" @@keyup.enter="crearAuto" class="control-label"></label>
+                        <input asp-for="MatriculaCaracterTres" name="MatriculaCaracterTres" class="form-control" />
+                        <span asp-validation-for="MatriculaCaracterTres" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label v-model="auto.Fecha" @@keyup.enter="crearAuto" class="control-label"></label>
+                        <input asp-for="Fecha" name="Fecha" class="form-control" />
+                        <span asp-validation-for="Fecha" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+
             </form>
         </div>
     </div>
 </div>
 @section ScriptsSection {
-    <script src="~/js/Lista.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+
+    <script src="~/js/Formulario.js"></script>
+    <script src="~/js/Vehiculo-validator.js"></script>
     <script>
-        export default {
-            data()
-        }
-        $(document).ready(function () {
-
-
-
-            // refresh captcha
-            $('img#refresh').click(function () {
-
-                change_captcha();
-            });
-
-            function change_captcha() {
-                document.getElementById('captcha').src = "get_captcha.php?rnd=" + Math.random();
-            }
-
-            function clear_form() {
-
-
-
-
-
-                $("Tipo").val('');
-                $("Marca").val('');
-                $("Modelo").val('');
-                $("Color").val('');
-                $("Deposito").val('');
-                $("MatriculaCaracterUno").val('');
-                $("MatriculaCaracterDos").val('');
-                $("MatriculaCaracterTres").val('');
-                $("Fecha").val('');
-
-
-            }
-
-
-        });
-
+        $("#vehiculoform").validate();
     </script>
     <script>
 
 
         $(document).ready(function () {
-            initVue();
-            vm.obtenerEdit();
+            vm.obtenerAutoById(@ViewData["Id"]);
         });
     </script>
 }

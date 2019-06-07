@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoPrueba2.Data;
 using AutoPrueba2.Models;
+using AutoPrueba2.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoPrueba2.Controllers
@@ -20,7 +21,7 @@ namespace AutoPrueba2.Controllers
 
         public IActionResult Eliminar(int id)
         {
-
+            ViewData["Id"] = id;
             return View(GetAutoId(id));
         }
         public IActionResult Agregar()
@@ -29,35 +30,17 @@ namespace AutoPrueba2.Controllers
 
             return View();
         }
+
+
+        [HttpPost]
         public async Task<IActionResult> Add(Auto en)
         {
             try
             {
                 //throw new Exception("No se pudo guardar el vehiculo.");
-                var autito = new Auto
-                {
-                    Id = en.Id,
+              
 
-                    Tipo = en.Tipo,
-
-                    Marca = en.Marca,
-
-                    Modelo = en.Modelo,
-
-                    Color = en.Color,
-
-                    Deposito = en.Deposito,
-
-                    MatriculaCaracterUno = en.MatriculaCaracterUno,
-
-                    MatriculaCaracterDos = en.MatriculaCaracterDos,
-
-                    MatriculaCaracterTres = en.MatriculaCaracterTres,
-
-                    Fecha = en.Fecha
-                };
-
-                db.Autos.Add(autito);
+                db.Autos.Add(en);
                 await db.SaveChangesAsync();
 
                 return Redirect("/Home/Index");
@@ -74,12 +57,32 @@ namespace AutoPrueba2.Controllers
 
             
         }
-        public IEnumerable<Auto> Listar()
-        {
-            var AutosPrueba = db.Autos.ToList();
 
+        public List<AutoDto> Listar()
+        {
+            List<AutoDto> AutosPrueba = new List<AutoDto>();
+
+            foreach (var item in db.Autos.ToList())
+            {
+                AutoDto dto = new AutoDto();
+
+                dto.Id = item.Id;
+                dto.Tipo = item.Tipo;
+                dto.Marca = item.Marca;
+                dto.Modelo = item.Modelo;
+                dto.Color = item.Color;
+                dto.Deposito = item.Deposito;
+                dto.MatriculaConcatenada = item.MatriculaCaracterUno + "-" + item.MatriculaCaracterDos + "-" + item.MatriculaCaracterTres;
+                dto.MatriculaCaracterUno = item.MatriculaCaracterUno;
+                dto.MatriculaCaracterDos = item.MatriculaCaracterDos;
+                dto.MatriculaCaracterTres = item.MatriculaCaracterTres;
+                dto.Fecha = item.Fecha.ToShortDateString();
+
+                AutosPrueba.Add(dto);
+            }
             return AutosPrueba;
         }
+
         public async Task<IActionResult> Delete(Auto en)
         {
 
@@ -102,10 +105,12 @@ namespace AutoPrueba2.Controllers
            
 
         }
+
         public Auto GetAutoId(int id)
         {
             return db.Autos.FirstOrDefault(x => x.Id == id);
-        }
+          }
+
         public async Task<IActionResult> Edit(Auto en)
         {
 
@@ -124,15 +129,11 @@ namespace AutoPrueba2.Controllers
             
 
         }
-        public Auto GetAutoIdEditar(int id)
-        {
-            return db.Autos.FirstOrDefault(x => x.Id == id);
-        }
+
         public IActionResult Editar(int id)
         {
-
-            var x = GetAutoIdEditar(id);
-            return View(x);
+            ViewData["Id"] = id;
+            return View(GetAutoId(id));
         }
     
     }

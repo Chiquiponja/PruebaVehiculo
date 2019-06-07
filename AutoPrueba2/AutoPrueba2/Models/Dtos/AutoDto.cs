@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AutoPrueba2.Models
+namespace AutoPrueba2.Models.Dtos
 {
-    public class Auto
+    public class AutoDto
     {
         public int Id { get; set; }
         public string Tipo { get; set; }
@@ -16,7 +16,7 @@ namespace AutoPrueba2.Models
         public string MatriculaCaracterUno { get; set; }
         public int MatriculaCaracterDos { get; set; }
         public string MatriculaCaracterTres { get; set; }
-        public DateTime Fecha { get; set; }
-
+        public string Fecha { get; set; }
+        public string MatriculaConcatenada { get; set; }
     }
 }
