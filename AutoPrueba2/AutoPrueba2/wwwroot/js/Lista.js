@@ -26,6 +26,9 @@ function initVue() {
                             console.log("La solicitud ha fallado: " + textStatus);
                         }
                     });
+                $(document).ready(function () {
+                    $('#example').DataTable();
+                });
             
             },
             

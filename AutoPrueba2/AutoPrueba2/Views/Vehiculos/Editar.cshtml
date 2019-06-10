@@ -13,57 +13,47 @@
             <form action="/Vehiculos/Edit" id="vehiculoform">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" name="Id" />
-       
-                    <div class="form-group">
-                        <label @@keyup.enter="crearAuto" class="control-label">{{ auto.Tipo }}</label>
-                        <input v-model="auto.Tipo" asp-for="Tipo" name="Tipo" class="form-control" />
-                        <span asp-validation-for="Tipo" class="text-danger"></span>
-                    </div>
 
-
-                    <div class="form-group">
-                        <label @@keyup.enter="crearAuto" class="control-label">{{ auto.Marca }}</label>
-                        <input v-model="auto.Marca" asp-for="Marca" name="Marca" class="form-control" />
-                        <span asp-validation-for="Marca" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label v-model="auto.Modelo" @@keyup.enter="crearAuto" class="control-label"></label>
-                        <input asp-for="Modelo" name="Modelo" class="form-control" />
-                        <span asp-validation-for="Modelo" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label v-model="auto.Color" @@keyup.enter="crearAuto" class="control-label"></label>
-                        <input asp-for="Color" name="Color" class="form-control" />
-                        <span asp-validation-for="Color" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label v-model="auto.Deposito" @@keyup.enter="crearAuto" class="control-label"></label>
-                        <input asp-for="Deposito" name="Deposito" class="form-control" />
-                        <span asp-validation-for="Deposito" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label v-model="auto.MatriculaCaracterUno" @@keyup.enter="crearAuto" class="control-label"></label>
-                        <input asp-for="MatriculaCaracterUno" name="MatriculaCaracterUno" class="form-control" />
-                        <span asp-validation-for="MatriculaCaracterUno" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label v-model="auto.MatriculaCaracterDos" @@keyup.enter="crearAuto" class="control-label"></label>
-                        <input asp-for="MatriculaCaracterDos" name="MatriculaCaracterDos" class="form-control" />
-                        <span asp-validation-for="MatriculaCaracterDos" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label v-model="auto.MatriculaCaracterTres" @@keyup.enter="crearAuto" class="control-label"></label>
-                        <input asp-for="MatriculaCaracterTres" name="MatriculaCaracterTres" class="form-control" />
-                        <span asp-validation-for="MatriculaCaracterTres" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label v-model="auto.Fecha" @@keyup.enter="crearAuto" class="control-label"></label>
-                        <input asp-for="Fecha" name="Fecha" class="form-control" />
-                        <span asp-validation-for="Fecha" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-primary" />
-                    </div>
+                <div class="form-group">
+                    <label class="control-label" for="checkbox">{{ auto.tipo }}</label>
+                    <input v-model="auto.Tipo" @@keyup.enter="crearAuto" d name="Tipo" class="form-control" id="Tipo" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">{{ auto.marca }}</label>
+                    <input v-model="auto.Marca" @@keyup.enter="crearAuto" for="Marca" name="Marca" class="form-control" id="Marca" />
+                </div>
+                <div class="form-group">
+                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.modelo }}</label>
+                    <input v-model="auto.Modelo" for="Modelo" name="Modelo" class="form-control" id="Modelo" />
+                </div>
+                <div class="form-group">
+                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.color }}</label>
+                    <input v-model="auto.Color" for="Color" name="Color" class="form-control" id="Color"/>
+                </div>
+                <div class="form-group">
+                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.deposito }}</label>
+                    <input v-model="auto.Deposito" for="Deposito" name="Deposito" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.matriculacaracteruno }}</label>
+                    <input v-model="auto.MatriculaCaracterUno" asp-for="MatriculaCaracterUno" name="MatriculaCaracterUno" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.matriculacaracterdos }}</label>
+                    <input v-model="auto.MatriculaCaracterDos" for="MatriculaCaracterDos" name="MatriculaCaracterDos" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.matriculacaractertres }}</label>
+                    <input v-model="auto.MatriculaCaracterTres" asp-for="MatriculaCaracterTres" name="MatriculaCaracterTres" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.fecha }}</label>
+                    <input v-model="auto.Fecha" for="Fecha" name="Fecha" class="form-control" />
+                    <span asp-validation-for="Fecha" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
 
             </form>
         </div>
@@ -72,17 +62,14 @@
 @section ScriptsSection {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
-
     <script src="~/js/Formulario.js"></script>
-    <script src="~/js/Vehiculo-validator.js"></script>
     <script>
-        $("#vehiculoform").validate();
-    </script>
-    <script>
-
-
         $(document).ready(function () {
             vm.obtenerAutoById(@ViewData["Id"]);
         });
+    </script>
+    <script src="~/js/Vehiculo-validator.js"></script>
+    <script>
+        $("#vehiculoform").validate();
     </script>
 }
