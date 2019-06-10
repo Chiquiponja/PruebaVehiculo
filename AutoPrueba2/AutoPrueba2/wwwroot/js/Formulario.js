@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         methods: {
             crearAuto: function () {
 
-                var data = JSON.stringify(vm.$data.auto);
+                //var data = JSON.stringify(vm.$data.auto);
 
                 $.ajax({
                     url: "/Vehiculos/Add",

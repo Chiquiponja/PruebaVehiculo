@@ -4,7 +4,6 @@ function initVue() {
         el: '#app',
         data: {
             vehiculo: [],
-
         },
         methods: {
             obtenerVehiculo: function () {

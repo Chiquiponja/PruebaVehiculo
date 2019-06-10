@@ -24,15 +24,13 @@ namespace AutoPrueba2.Controllers
             ViewData["Id"] = id;
             return View(GetAutoId(id));
         }
-        public IActionResult Agregar()
+        public IActionResult Agregar(int id)
         {
-
-
-            return View();
+            ViewData["Id"] = id;
+            return View(GetAutoId(id));
         }
 
 
-        [HttpPost]
         public async Task<IActionResult> Add(Auto en)
         {
             try
