@@ -22,7 +22,14 @@ namespace AutoPrueba2.Controllers
         public IActionResult Eliminar(int id)
         {
             ViewData["Id"] = id;
-            return View(GetAutoId(id));
+            var auto = GetAutoId(id);
+
+            if (auto == null)
+            {
+                ViewData["ErrorMessage"] = ($"El auto con id: {id} no existe en la base de datos");
+                return View("Error");
+            }
+            return View();
         }
         public IActionResult Agregar(int id)
         {
@@ -106,7 +113,9 @@ namespace AutoPrueba2.Controllers
 
         public Auto GetAutoId(int id)
         {
-            return db.Autos.FirstOrDefault(x => x.Id == id);
+
+            var auto = db.Autos.FirstOrDefault(x => x.Id == id);
+            return auto;
           }
 
         public async Task<IActionResult> Edit(Auto en)
@@ -131,7 +140,15 @@ namespace AutoPrueba2.Controllers
         public IActionResult Editar(int id)
         {
             ViewData["Id"] = id;
-            return View(GetAutoId(id));
+
+            var auto = GetAutoId(id);
+
+            if (auto == null)
+            {
+                ViewData["ErrorMessage"]= ($"El auto con id: {id} no existe en la base de datos");
+                return View("Error");
+            }
+            return View();
         }
     
     }
