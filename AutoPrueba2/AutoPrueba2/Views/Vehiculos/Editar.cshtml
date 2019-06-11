@@ -15,43 +15,43 @@
                 <input type="hidden" asp-for="Id" name="Id" />
 
                 <div class="form-group">
-                    <label class="control-label" for="checkbox">{{ auto.tipo }}</label>
-                    <input v-model="auto.Tipo" @@keyup.enter="crearAuto"  name="Tipo" class="form-control" id="Tipo"  />
+                    <label class="control-label" for="checkbox">Tipo</label>
+                    <input v-model="auto.tipo" @@keyup.enter="crearAuto"  name="Tipo" class="form-control" id="tipo"  />
                 </div>
                 <div class="form-group">
-                    <label class="control-label">{{ auto.marca }}</label>
-                    <input v-model="auto.Marca" @@keyup.enter="crearAuto" for="Marca" name="Marca" class="form-control" id="Marca" />
+                    <label class="control-label">Marca</label>
+                    <input v-model="auto.marca" @@keyup.enter="crearAuto"  name="Marca" class="form-control" id="marca" />
                 </div>
                 <div class="form-group">
-                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.modelo }}</label>
-                    <input v-model="auto.Modelo" for="Modelo" name="Modelo" class="form-control" id="Modelo" />
+                    <label @@keyup.enter="crearAuto" class="control-label"> Modelo </label>
+                    <input v-model="auto.modelo" for="modelo" name="Modelo" class="form-control" id="modelo" />
                 </div>
                 <div class="form-group">
-                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.color }}</label>
-                    <input v-model="auto.Color" for="Color" name="Color" class="form-control" id="Color"/>
+                    <label @@keyup.enter="crearAuto" class="control-label">Color </label>
+                    <input v-model="auto.color" for="color" name="Color" class="form-control" id="color"/>
                 </div>
                 <div class="form-group">
-                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.deposito }}</label>
-                    <input v-model="auto.Deposito" id="Deposito" name="Deposito" class="form-control" />
+                    <label @@keyup.enter="crearAuto" class="control-label">Deposito </label>
+                    <input v-model="auto.deposito" id="deposito" name="Deposito" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label @@keyup.enter="crearAuto" class="control-label">{{auto.matriculaConcatenada }}</label>
-                    <input v-model="auto.MatriculaCaracterUno" id="MatriculaConcatenada" name="MatriculaCaracterUno" class="form-control" />
-                </div>
-                @*<div class="form-group">
-                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.matriculacaracterdos }}</label>
-                    <input v-model="auto.MatriculaCaracterDos" id="MatriculaCaracterDos" name="MatriculaCaracterDos" class="form-control" />
+                    <label @@keyup.enter="crearAuto" class="control-label"> Matricula Caracter Uno</label>
+                    <input v-model="auto.matriculaCaracterUno" id="matriculaCaracterUno" name="MatriculaCaracterUno" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.matriculacaractertres }}</label>
-                    <input v-model="auto.MatriculaCaracterTres" id="MatriculaCaracterTres" name="MatriculaCaracterTres" class="form-control" />
-                </div>*@
-                <div class="form-group">
-                    <label @@keyup.enter="crearAuto" class="control-label">{{ auto.fecha }}</label>
-                    <input v-model="auto.Fecha" name="Fecha"id="Fecha" class="form-control" />
+                    <label @@keyup.enter="crearAuto" class="control-label">Matricula Caracter Dos</label>
+                    <input v-model="auto.matriculaCaracterDos" id="matriculaCaracterDos" name="MatriculaCaracterDos" class="form-control" type="number"/>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="auto" v-on:click="auto" class="btn btn-primary" />
+                    <label @@keyup.enter="crearAuto" class="control-label">Matricula Caracter Tres</label>
+                    <input v-model="auto.matriculaCaracterTres" id="matriculaCaracterTres" name="MatriculaCaracterTres" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label @@keyup.enter="crearAuto" class="control-label">Fecha</label>
+                    <input v-model="auto.fecha" name="Fecha" id="fecha" class="form-control"  />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Enviar" v-on:click="auto" class="btn btn-primary" />
                 </div>
 
             </form>
